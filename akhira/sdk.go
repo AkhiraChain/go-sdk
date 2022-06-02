@@ -197,6 +197,8 @@ func getDefaultRpcUrl(rpcUrlorName string) (string, error) {
 		return "https://rpc.ftm.tools", nil
 	case "avalanche":
 		return "https://rpc.ankr.com/avalanche", nil
+	case "celo":
+		return "https://forno.celo.org", nil
 	default:
 		if strings.HasPrefix(rpcUrlorName, "http") {
 			return rpcUrlorName, nil
