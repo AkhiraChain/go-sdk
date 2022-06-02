@@ -8,12 +8,12 @@ import (
 	"math/big"
 	"strings"
 
+	"github.com/akhirachain/go-sdk/internal/abi"
 	"github.com/btcsuite/btcutil/base58"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/fxamacker/cbor"
-	"github.com/thirdweb-dev/go-sdk/internal/abi"
 )
 
 // NFT

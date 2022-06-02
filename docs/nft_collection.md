@@ -5,12 +5,12 @@ You can access the NFT Collection interface from the SDK as follows:
 
 ```
 import (
-	"github.com/thirdweb-dev/go-sdk/thirdweb"
+	"github.com/akhirachain/go-sdk/akhira"
 )
 
 privateKey = "..."
 
-sdk, err := thirdweb.NewAkhiraSDK("mumbai", &thirdweb.SDKOptions{
+sdk, err := akhira.NewAkhiraSDK("mumbai", &akhira.SDKOptions{
 	PrivateKey: privateKey,
 })
 
@@ -24,7 +24,7 @@ type NFTCollection struct {
 }
 ```
 
-### func \(\*NFTCollection\) [GetOwned](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_collection.go#L71>)
+### func \(\*NFTCollection\) [GetOwned](<https://github.com/akhirachain/go-sdk/blob/main/akhira/nft_collection.go#L71>)
 
 ```go
 func (nft *NFTCollection) GetOwned(address string) ([]*NFTMetadataOwner, error)
@@ -44,7 +44,7 @@ nfts, err := contract.GetOwned(owner)
 name := nfts[0].Metadata.Name
 ```
 
-### func \(\*NFTCollection\) [GetOwnedTokenIDs](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_collection.go#L88>)
+### func \(\*NFTCollection\) [GetOwnedTokenIDs](<https://github.com/akhirachain/go-sdk/blob/main/akhira/nft_collection.go#L88>)
 
 ```go
 func (nft *NFTCollection) GetOwnedTokenIDs(address string) ([]*big.Int, error)
@@ -56,7 +56,7 @@ address: the address of the owner of the NFTs
 
 returns: the tokenIds of all the NFTs owned by the address
 
-### func \(\*NFTCollection\) [Mint](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_collection.go#L113>)
+### func \(\*NFTCollection\) [Mint](<https://github.com/akhirachain/go-sdk/blob/main/akhira/nft_collection.go#L113>)
 
 ```go
 func (nft *NFTCollection) Mint(metadata *NFTMetadataInput) (*types.Transaction, error)
@@ -68,7 +68,7 @@ metadata: metadata of the NFT to mint
 
 returns: the transaction receipt of the mint
 
-### func \(\*NFTCollection\) [MintBatch](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_collection.go#L165>)
+### func \(\*NFTCollection\) [MintBatch](<https://github.com/akhirachain/go-sdk/blob/main/akhira/nft_collection.go#L165>)
 
 ```go
 func (nft *NFTCollection) MintBatch(metadatas []*NFTMetadataInput) (*types.Transaction, error)
@@ -80,7 +80,7 @@ metadatas: list of metadata of the NFTs to mint
 
 returns: the transaction receipt of the mint
 
-### func \(\*NFTCollection\) [MintBatchTo](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_collection.go#L192>)
+### func \(\*NFTCollection\) [MintBatchTo](<https://github.com/akhirachain/go-sdk/blob/main/akhira/nft_collection.go#L192>)
 
 ```go
 func (nft *NFTCollection) MintBatchTo(address string, metadatas []*NFTMetadataInput) (*types.Transaction, error)
@@ -97,12 +97,12 @@ returns: the transaction receipt of the mint
 #### Example
 
 ```
-metadatas := []*thirdweb.NFTMetadataInput{
-	&thirdweb.NFTMetadataInput{
+metadatas := []*akhira.NFTMetadataInput{
+	&akhira.NFTMetadataInput{
 		Name: "Cool NFT",
 		Description: "This is a cool NFT",
 	}
-	&thirdweb.NFTMetadataInput{
+	&akhira.NFTMetadataInput{
 		Name: "Cool NFT 2",
 		Description: "This is also a cool NFT",
 	}
@@ -111,7 +111,7 @@ metadatas := []*thirdweb.NFTMetadataInput{
 tx, err := contract.MintBatchTo("{{wallet_address}}", metadatas)
 ```
 
-### func \(\*NFTCollection\) [MintTo](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_collection.go#L138>)
+### func \(\*NFTCollection\) [MintTo](<https://github.com/akhirachain/go-sdk/blob/main/akhira/nft_collection.go#L138>)
 
 ```go
 func (nft *NFTCollection) MintTo(address string, metadata *NFTMetadataInput) (*types.Transaction, error)
@@ -131,7 +131,7 @@ returns: the transaction receipt of the mint
 image, err := os.Open("path/to/image.jpg")
 defer image.Close()
 
-metadata := &thirdweb.NFTMetadataInput{
+metadata := &akhira.NFTMetadataInput{
 	Name: "Cool NFT",
 	Description: "This is a cool NFT",
 	Image: image,

@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 
+	"github.com/akhirachain/go-sdk/akhira"
 	"github.com/spf13/cobra"
-	"github.com/thirdweb-dev/go-sdk/thirdweb"
 )
 
 var (
@@ -78,7 +78,7 @@ var nftMintCmd = &cobra.Command{
 		}
 		defer imageFile.Close()
 
-		if tx, err := nftCollection.Mint(&thirdweb.NFTMetadataInput{
+		if tx, err := nftCollection.Mint(&akhira.NFTMetadataInput{
 			Name:  "NFT Test",
 			Image: imageFile,
 		}); err != nil {
@@ -102,7 +102,7 @@ var nftMintLinkCmd = &cobra.Command{
 			panic(err)
 		}
 
-		if tx, err := nftCollection.Mint(&thirdweb.NFTMetadataInput{
+		if tx, err := nftCollection.Mint(&akhira.NFTMetadataInput{
 			Name:  "NFT Test",
 			Image: "ipfs://QmcCJC4T37rykDjR6oorM8hpB9GQWHKWbAi2YR1uTabUZu/0",
 		}); err != nil {
@@ -133,14 +133,14 @@ var nftSigmintCmd = &cobra.Command{
 		defer imageFile.Close()
 
 		payload, err := nftCollection.Signature.Generate(
-			&thirdweb.Signature721PayloadInput{
+			&akhira.Signature721PayloadInput{
 				To:                   "0x9e1b8A86fFEE4a7175DAE4bDB1cC12d111Dcb3D6",
 				Price:                0,
 				CurrencyAddress:      "0x0000000000000000000000000000000000000000",
 				MintStartTime:        0,
 				MintEndTime:          100000000000000,
 				PrimarySaleRecipient: "0x0000000000000000000000000000000000000000",
-				Metadata: &thirdweb.NFTMetadataInput{
+				Metadata: &akhira.NFTMetadataInput{
 					Name:  "ERC721 Sigmint!",
 					Image: imageFile,
 				},

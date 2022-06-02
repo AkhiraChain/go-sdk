@@ -3,21 +3,21 @@ package akhira
 import (
 	"math/big"
 
+	"github.com/akhirachain/go-sdk/internal/abi"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/thirdweb-dev/go-sdk/internal/abi"
 )
 
 // You can access the Edition interface from the SDK as follows:
 //
 // 	import (
-// 		"github.com/thirdweb-dev/go-sdk/thirdweb"
+// 		"github.com/akhirachain/go-sdk/akhira"
 // 	)
 //
 // 	privateKey = "..."
 //
-// 	sdk, err := thirdweb.NewAkhiraSDK("mumbai", &thirdweb.SDKOptions{
+// 	sdk, err := akhira.NewAkhiraSDK("mumbai", &akhira.SDKOptions{
 //		PrivateKey: privateKey,
 // 	})
 //
@@ -80,8 +80,8 @@ func (edition *Edition) Mint(metadataWithSupply *EditionMetadataInput) (*types.T
 // 	image, err := os.Open("path/to/image.jpg")
 // 	defer image.Close()
 //
-// 	metadataWithSupply := &thirdweb.EditionMetadataInput{
-// 		Metadata: &thirdweb.NFTMetadataInput{
+// 	metadataWithSupply := &akhira.EditionMetadataInput{
+// 		Metadata: &akhira.NFTMetadataInput{
 // 			Name: "Cool NFT",
 // 			Description: "This is a cool NFT",
 // 			Image: image,
@@ -170,16 +170,16 @@ func (edition *Edition) MintAdditionalSupplyTo(to string, tokenId int, additiona
 //
 // Example
 //
-// 	metadatasWithSupply := []*thirdweb.EditionMetadataInput{
-// 		&thirdweb.EditionMetadataInput{
-// 			Metadata: &thirdweb.NFTMetadataInput{
+// 	metadatasWithSupply := []*akhira.EditionMetadataInput{
+// 		&akhira.EditionMetadataInput{
+// 			Metadata: &akhira.NFTMetadataInput{
 // 				Name: "Cool NFT",
 // 				Description: "This is a cool NFT",
 // 			},
 // 			Supply: 100,
 // 		},
-// 		&thirdweb.EditionMetadataInput{
-// 			Metadata: &thirdweb.NFTMetadataInput{
+// 		&akhira.EditionMetadataInput{
+// 			Metadata: &akhira.NFTMetadataInput{
 // 				Name: "Cool NFT",
 // 				Description: "This is a cool NFT",
 // 			},

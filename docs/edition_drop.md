@@ -5,12 +5,12 @@ You can access the Edition Drop interface from the SDK as follows:
 
 ```
 import (
-	"github.com/thirdweb-dev/go-sdk/thirdweb"
+	"github.com/akhirachain/go-sdk/akhira"
 )
 
 privateKey = "..."
 
-sdk, err := thirdweb.NewAkhiraSDK("mumbai", &thirdweb.SDKOptions{
+sdk, err := akhira.NewAkhiraSDK("mumbai", &akhira.SDKOptions{
 	PrivateKey: privateKey,
 })
 
@@ -23,7 +23,7 @@ type EditionDrop struct {
 }
 ```
 
-### func \(\*EditionDrop\) [Claim](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/edition_drop.go#L138>)
+### func \(\*EditionDrop\) [Claim](<https://github.com/akhirachain/go-sdk/blob/main/akhira/edition_drop.go#L138>)
 
 ```go
 func (drop *EditionDrop) Claim(tokenId int, quantity int) (*types.Transaction, error)
@@ -37,7 +37,7 @@ quantity: the number of NFTs to claim
 
 returns: the transaction receipt of the claim
 
-### func \(\*EditionDrop\) [ClaimTo](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/edition_drop.go#L160>)
+### func \(\*EditionDrop\) [ClaimTo](<https://github.com/akhirachain/go-sdk/blob/main/akhira/edition_drop.go#L160>)
 
 ```go
 func (drop *EditionDrop) ClaimTo(destinationAddress string, tokenId int, quantity int) (*types.Transaction, error)
@@ -63,7 +63,7 @@ quantity = 1
 tx, err := contract.ClaimTo(address, tokenId, quantity)
 ```
 
-### func \(\*EditionDrop\) [CreateBatch](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/edition_drop.go#L94>)
+### func \(\*EditionDrop\) [CreateBatch](<https://github.com/akhirachain/go-sdk/blob/main/akhira/edition_drop.go#L94>)
 
 ```go
 func (drop *EditionDrop) CreateBatch(metadatas []*NFTMetadataInput) (*types.Transaction, error)
@@ -84,17 +84,17 @@ defer image0.Close()
 image1, err := os.Open("path/to/image/1.jpg")
 defer image1.Close()
 
-metadatasWithSupply := []*thirdweb.EditionMetadataInput{
-	&thirdweb.EditionMetadataInput{
-		Metadata: &thirdweb.NFTMetadataInput{
+metadatasWithSupply := []*akhira.EditionMetadataInput{
+	&akhira.EditionMetadataInput{
+		Metadata: &akhira.NFTMetadataInput{
 			Name: "Cool NFT",
 			Description: "This is a cool NFT",
 			Image: image0,
 		},
 		Supply: 100,
 	},
-	&thirdweb.EditionMetadataInput{
-		Metadata: &thirdweb.NFTMetadataInput{
+	&akhira.EditionMetadataInput{
+		Metadata: &akhira.NFTMetadataInput{
 			Name: "Cool NFT",
 			Description: "This is a cool NFT",
 			Image: image1,
@@ -106,7 +106,7 @@ metadatasWithSupply := []*thirdweb.EditionMetadataInput{
 tx, err := contract.MintBatchTo("{{wallet_address}}", metadatasWithSupply)
 ```
 
-## type [EditionMetadata](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L44-L47>)
+## type [EditionMetadata](<https://github.com/akhirachain/go-sdk/blob/main/akhira/types.go#L44-L47>)
 
 ```go
 type EditionMetadata struct {
@@ -115,7 +115,7 @@ type EditionMetadata struct {
 }
 ```
 
-## type [EditionMetadataInput](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L56-L59>)
+## type [EditionMetadataInput](<https://github.com/akhirachain/go-sdk/blob/main/akhira/types.go#L56-L59>)
 
 ```go
 type EditionMetadataInput struct {
@@ -124,7 +124,7 @@ type EditionMetadataInput struct {
 }
 ```
 
-## type [EditionMetadataOwner](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L49-L54>)
+## type [EditionMetadataOwner](<https://github.com/akhirachain/go-sdk/blob/main/akhira/types.go#L49-L54>)
 
 ```go
 type EditionMetadataOwner struct {
@@ -135,7 +135,7 @@ type EditionMetadataOwner struct {
 }
 ```
 
-## type [EditionResult](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155.go#L23-L26>)
+## type [EditionResult](<https://github.com/akhirachain/go-sdk/blob/main/akhira/erc1155.go#L23-L26>)
 
 ```go
 type EditionResult struct {}

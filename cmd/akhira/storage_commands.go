@@ -5,8 +5,8 @@ import (
 	"log"
 	"os"
 
+	"github.com/akhirachain/go-sdk/akhira"
 	"github.com/spf13/cobra"
-	"github.com/thirdweb-dev/go-sdk/thirdweb"
 )
 
 var storageCmd = &cobra.Command{
@@ -24,7 +24,7 @@ var storageUploadCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		storage := getStorage()
 
-		uri, err := storage.Upload(&thirdweb.NFTMetadataInput{
+		uri, err := storage.Upload(&akhira.NFTMetadataInput{
 			Name:        "Test NFT 1",
 			Description: "Description 1",
 		}, "", "")
@@ -44,8 +44,8 @@ var storageUploadBatchCmd = &cobra.Command{
 
 		uriWithBaseUris, err := storage.UploadBatch(
 			[]interface{}{
-				&thirdweb.NFTMetadataInput{Name: "Test NFT 2", Description: "Description 2"},
-				&thirdweb.NFTMetadataInput{Name: "Test NFT 3", Description: "Description 3"},
+				&akhira.NFTMetadataInput{Name: "Test NFT 2", Description: "Description 2"},
+				&akhira.NFTMetadataInput{Name: "Test NFT 3", Description: "Description 3"},
 			},
 			0,
 			"",
@@ -72,7 +72,7 @@ var storageUploadImageCmd = &cobra.Command{
 		}
 		defer imageFile.Close()
 
-		uri, err := storage.Upload(&thirdweb.NFTMetadataInput{
+		uri, err := storage.Upload(&akhira.NFTMetadataInput{
 			Name:  "Test NFT 1",
 			Image: imageFile,
 		}, "", "")
@@ -96,7 +96,7 @@ var storageUploadImageLinkCmd = &cobra.Command{
 		}
 		defer imageFile.Close()
 
-		uri, err := storage.Upload(&thirdweb.NFTMetadataInput{
+		uri, err := storage.Upload(&akhira.NFTMetadataInput{
 			Name:  "Test NFT 1",
 			Image: "ipfs://QmcCJC4T37rykDjR6oorM8hpB9GQWHKWbAi2YR1uTabUZu/0",
 		}, "", "")

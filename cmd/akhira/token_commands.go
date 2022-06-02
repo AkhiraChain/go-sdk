@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/akhirachain/go-sdk/akhira"
 	"github.com/spf13/cobra"
-	"github.com/thirdweb-dev/go-sdk/thirdweb"
 )
 
 var (
@@ -77,7 +77,7 @@ var tokenMintBatchCmd = &cobra.Command{
 			panic(err)
 		}
 
-		tx, err := token.MintBatchTo([]*thirdweb.TokenAmount{
+		tx, err := token.MintBatchTo([]*akhira.TokenAmount{
 			{
 				ToAddress: "0x9e1b8A86fFEE4a7175DAE4bDB1cC12d111Dcb3D6",
 				Amount:    1,

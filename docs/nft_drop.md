@@ -5,12 +5,12 @@ You can access the NFT Drop interface from the SDK as follows:
 
 ```
 import (
-	"github.com/thirdweb-dev/go-sdk/thirdweb"
+	"github.com/akhirachain/go-sdk/akhira"
 )
 
 privateKey = "..."
 
-sdk, err := thirdweb.NewAkhiraSDK("mumbai", &thirdweb.SDKOptions{
+sdk, err := akhira.NewAkhiraSDK("mumbai", &akhira.SDKOptions{
 	PrivateKey: privateKey,
 })
 
@@ -23,7 +23,7 @@ type NFTDrop struct {
 }
 ```
 
-### func \(\*NFTDrop\) [Claim](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop.go#L231>)
+### func \(\*NFTDrop\) [Claim](<https://github.com/akhirachain/go-sdk/blob/main/akhira/nft_drop.go#L231>)
 
 ```go
 func (drop *NFTDrop) Claim(quantity int) (*types.Transaction, error)
@@ -35,7 +35,7 @@ quantity: the number of NFTs to claim
 
 returns: the transaction receipt of the claim
 
-### func \(\*NFTDrop\) [ClaimTo](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop.go#L250>)
+### func \(\*NFTDrop\) [ClaimTo](<https://github.com/akhirachain/go-sdk/blob/main/akhira/nft_drop.go#L250>)
 
 ```go
 func (drop *NFTDrop) ClaimTo(destinationAddress string, quantity int) (*types.Transaction, error)
@@ -58,7 +58,7 @@ quantity = 1
 tx, err := contract.ClaimTo(address, quantity)
 ```
 
-### func \(\*NFTDrop\) [CreateBatch](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop.go#L188>)
+### func \(\*NFTDrop\) [CreateBatch](<https://github.com/akhirachain/go-sdk/blob/main/akhira/nft_drop.go#L188>)
 
 ```go
 func (drop *NFTDrop) CreateBatch(metadatas []*NFTMetadataInput) (*types.Transaction, error)
@@ -79,13 +79,13 @@ defer image0.Close()
 image1, err := os.Open("path/to/image/1.jpg")
 defer image1.Close()
 
-metadatas := []*thirdweb.NFTMetadataInput{
-	&thirdweb.NFTMetadataInput{
+metadatas := []*akhira.NFTMetadataInput{
+	&akhira.NFTMetadataInput{
 		Name: "Cool NFT",
 		Description: "This is a cool NFT",
 		Image: image1
 	}
-	&thirdweb.NFTMetadataInput{
+	&akhira.NFTMetadataInput{
 		Name: "Cool NFT 2",
 		Description: "This is also a cool NFT",
 		Image: image2
@@ -95,7 +95,7 @@ metadatas := []*thirdweb.NFTMetadataInput{
 tx, err := contract.CreateBatch(metadatas)
 ```
 
-### func \(\*NFTDrop\) [GetAllClaimed](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop.go#L116>)
+### func \(\*NFTDrop\) [GetAllClaimed](<https://github.com/akhirachain/go-sdk/blob/main/akhira/nft_drop.go#L116>)
 
 ```go
 func (drop *NFTDrop) GetAllClaimed() ([]*NFTMetadataOwner, error)
@@ -112,7 +112,7 @@ claimedNfts, err := contract.GetAllClaimed()
 firstOwner := claimedNfts[0].Owner
 ```
 
-### func \(\*NFTDrop\) [GetAllUnclaimed](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop.go#L140>)
+### func \(\*NFTDrop\) [GetAllUnclaimed](<https://github.com/akhirachain/go-sdk/blob/main/akhira/nft_drop.go#L140>)
 
 ```go
 func (drop *NFTDrop) GetAllUnclaimed() ([]*NFTMetadata, error)
@@ -129,7 +129,7 @@ unclaimedNfts, err := contract.GetAllUnclaimed()
 firstNftName := unclaimedNfts[0].Name
 ```
 
-### func \(\*NFTDrop\) [GetOwned](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop.go#L71>)
+### func \(\*NFTDrop\) [GetOwned](<https://github.com/akhirachain/go-sdk/blob/main/akhira/nft_drop.go#L71>)
 
 ```go
 func (nft *NFTDrop) GetOwned(address string) ([]*NFTMetadataOwner, error)
@@ -149,7 +149,7 @@ nfts, err := contract.GetOwned(owner)
 name := nfts[0].Metadata.Name
 ```
 
-### func \(\*NFTDrop\) [GetOwnedTokenIDs](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop.go#L88>)
+### func \(\*NFTDrop\) [GetOwnedTokenIDs](<https://github.com/akhirachain/go-sdk/blob/main/akhira/nft_drop.go#L88>)
 
 ```go
 func (nft *NFTDrop) GetOwnedTokenIDs(address string) ([]*big.Int, error)
@@ -161,7 +161,7 @@ address: the address of the owner of the NFTs
 
 returns: the tokenIds of all the NFTs owned by the address
 
-## type [NFTMetadata](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L17-L27>)
+## type [NFTMetadata](<https://github.com/akhirachain/go-sdk/blob/main/akhira/types.go#L17-L27>)
 
 ```go
 type NFTMetadata struct {
@@ -177,7 +177,7 @@ type NFTMetadata struct {
 }
 ```
 
-## type [NFTMetadataInput](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L29-L37>)
+## type [NFTMetadataInput](<https://github.com/akhirachain/go-sdk/blob/main/akhira/types.go#L29-L37>)
 
 ```go
 type NFTMetadataInput struct {
@@ -191,7 +191,7 @@ type NFTMetadataInput struct {
 }
 ```
 
-## type [NFTMetadataOwner](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L39-L42>)
+## type [NFTMetadataOwner](<https://github.com/akhirachain/go-sdk/blob/main/akhira/types.go#L39-L42>)
 
 ```go
 type NFTMetadataOwner struct {
@@ -200,13 +200,13 @@ type NFTMetadataOwner struct {
 }
 ```
 
-## type [NFTResult](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc721.go#L23-L26>)
+## type [NFTResult](<https://github.com/akhirachain/go-sdk/blob/main/akhira/erc721.go#L23-L26>)
 
 ```go
 type NFTResult struct {}
 ```
 
-## type [NativeToken](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L113-L118>)
+## type [NativeToken](<https://github.com/akhirachain/go-sdk/blob/main/akhira/types.go#L113-L118>)
 
 ```go
 type NativeToken struct {}

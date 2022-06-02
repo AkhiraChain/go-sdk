@@ -3,11 +3,11 @@ package akhira
 import (
 	"math/big"
 
+	"github.com/akhirachain/go-sdk/internal/abi"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/thirdweb-dev/go-sdk/internal/abi"
 )
 
 // This interface is currently support by the Token contract. You can access
@@ -235,12 +235,12 @@ func (erc20 *ERC20) SetAllowance(spender string, amount float64) (*types.Transac
 //
 // Example
 //
-// 	args = []*thirdweb.TokenAmount{
-// 		&thirdweb.TokenAmount{
+// 	args = []*akhira.TokenAmount{
+// 		&akhira.TokenAmount{
 // 			ToAddress: "0x...",
 // 			Amount:    1
 // 		}
-// 		&thirdweb.TokenAmount{
+// 		&akhira.TokenAmount{
 // 			ToAddress: "0x...",
 // 			Amount:    2
 // 		}

@@ -3,34 +3,34 @@ package main
 import (
 	"log"
 
-	"github.com/thirdweb-dev/go-sdk/thirdweb"
+	"github.com/akhirachain/go-sdk/akhira"
 )
 
 var (
-	thirdwebSDK *thirdweb.AkhiraSDK
+	akhiraSDK *akhira.AkhiraSDK
 )
 
 func initSdk() {
-	if sdk, err := thirdweb.NewAkhiraSDK(
+	if sdk, err := akhira.NewAkhiraSDK(
 		chainRpcUrl,
-		&thirdweb.SDKOptions{
+		&akhira.SDKOptions{
 			PrivateKey: privateKey,
 		},
 	); err != nil {
 		panic(err)
 	} else {
-		thirdwebSDK = sdk
+		akhiraSDK = sdk
 	}
 }
 
-func getNftCollection() (*thirdweb.NFTCollection, error) {
-	if thirdwebSDK == nil {
+func getNftCollection() (*akhira.NFTCollection, error) {
+	if akhiraSDK == nil {
 		initSdk()
 	}
 
 	log.Printf("Obtaining a NFT Collection on chain %v, contract %v\n", chainRpcUrl, nftContractAddress)
 
-	if contract, err := thirdwebSDK.GetNFTCollection(nftContractAddress); err != nil {
+	if contract, err := akhiraSDK.GetNFTCollection(nftContractAddress); err != nil {
 		log.Println("Failed to create an NFT Collection object")
 		return nil, err
 	} else {
@@ -38,14 +38,14 @@ func getNftCollection() (*thirdweb.NFTCollection, error) {
 	}
 }
 
-func getEdition() (*thirdweb.Edition, error) {
-	if thirdwebSDK == nil {
+func getEdition() (*akhira.Edition, error) {
+	if akhiraSDK == nil {
 		initSdk()
 	}
 
 	log.Printf("Obtaining a Edition on chain %v, contract %v\n", chainRpcUrl, editionAddress)
 
-	if contract, err := thirdwebSDK.GetEdition(editionAddress); err != nil {
+	if contract, err := akhiraSDK.GetEdition(editionAddress); err != nil {
 		log.Println("Failed to create an Edition object")
 		return nil, err
 	} else {
@@ -53,14 +53,14 @@ func getEdition() (*thirdweb.Edition, error) {
 	}
 }
 
-func getToken() (*thirdweb.Token, error) {
-	if thirdwebSDK == nil {
+func getToken() (*akhira.Token, error) {
+	if akhiraSDK == nil {
 		initSdk()
 	}
 
 	log.Printf("Obtaining a Token on chain %v, contract %v\n", chainRpcUrl, tokenAddress)
 
-	if contract, err := thirdwebSDK.GetToken(tokenAddress); err != nil {
+	if contract, err := akhiraSDK.GetToken(tokenAddress); err != nil {
 		log.Println("Failed to create an Token object")
 		return nil, err
 	} else {
@@ -68,14 +68,14 @@ func getToken() (*thirdweb.Token, error) {
 	}
 }
 
-func getNftDrop() (*thirdweb.NFTDrop, error) {
-	if thirdwebSDK == nil {
+func getNftDrop() (*akhira.NFTDrop, error) {
+	if akhiraSDK == nil {
 		initSdk()
 	}
 
 	log.Printf("Obtaining a NFT Drop on chain %v, contract %v\n", chainRpcUrl, nftDropContractAddress)
 
-	if contract, err := thirdwebSDK.GetNFTDrop(nftDropContractAddress); err != nil {
+	if contract, err := akhiraSDK.GetNFTDrop(nftDropContractAddress); err != nil {
 		log.Println("Failed to create an NFT Drop object")
 		return nil, err
 	} else {
@@ -83,14 +83,14 @@ func getNftDrop() (*thirdweb.NFTDrop, error) {
 	}
 }
 
-func getEditionDrop() (*thirdweb.EditionDrop, error) {
-	if thirdwebSDK == nil {
+func getEditionDrop() (*akhira.EditionDrop, error) {
+	if akhiraSDK == nil {
 		initSdk()
 	}
 
 	log.Printf("Obtaining a Edition Drop on chain %v, contract %v\n", chainRpcUrl, editionDropContractAddress)
 
-	if contract, err := thirdwebSDK.GetEditionDrop(editionDropContractAddress); err != nil {
+	if contract, err := akhiraSDK.GetEditionDrop(editionDropContractAddress); err != nil {
 		log.Println("Failed to create an Edition Drop object")
 		return nil, err
 	} else {
@@ -98,14 +98,14 @@ func getEditionDrop() (*thirdweb.EditionDrop, error) {
 	}
 }
 
-func getMultiwrap() (*thirdweb.Multiwrap, error) {
-	if thirdwebSDK == nil {
+func getMultiwrap() (*akhira.Multiwrap, error) {
+	if akhiraSDK == nil {
 		initSdk()
 	}
 
 	log.Printf("Obtaining a Multiwrap on chain %v, contract %v\n", chainRpcUrl, multiwrapContractAddress)
 
-	if contract, err := thirdwebSDK.GetMultiwrap(multiwrapContractAddress); err != nil {
+	if contract, err := akhiraSDK.GetMultiwrap(multiwrapContractAddress); err != nil {
 		log.Println("Failed to create a Multiwrap object")
 		return nil, err
 	} else {
@@ -113,14 +113,14 @@ func getMultiwrap() (*thirdweb.Multiwrap, error) {
 	}
 }
 
-func getCustom() (*thirdweb.SmartContract, error) {
-	if thirdwebSDK == nil {
+func getCustom() (*akhira.SmartContract, error) {
+	if akhiraSDK == nil {
 		initSdk()
 	}
 
 	log.Printf("Obtaining a Custom on chain %v, contract %v\n", chainRpcUrl, customContractAddress)
 
-	if contract, err := thirdwebSDK.GetContract(customContractAddress); err != nil {
+	if contract, err := akhiraSDK.GetContract(customContractAddress); err != nil {
 		log.Println("Failed to create an Custom object")
 		return nil, err
 	} else {
@@ -128,10 +128,10 @@ func getCustom() (*thirdweb.SmartContract, error) {
 	}
 }
 
-func getStorage() thirdweb.IpfsStorage {
-	if thirdwebSDK == nil {
+func getStorage() akhira.IpfsStorage {
+	if akhiraSDK == nil {
 		initSdk()
 	}
 
-	return thirdwebSDK.Storage
+	return akhiraSDK.Storage
 }

@@ -8,7 +8,7 @@ type AkhiraSDK struct {
 }
 ```
 
-### func [NewAkhiraSDK](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/sdk.go#L23>)
+### func [NewAkhiraSDK](<https://github.com/akhirachain/go-sdk/blob/main/akhira/sdk.go#L23>)
 
 ```go
 func NewAkhiraSDK(rpcUrlOrChainName string, options *SDKOptions) (*AkhiraSDK, error)
@@ -22,7 +22,7 @@ rpcUrlOrName: the name of the chain to connection to \(e\.g\. "rinkeby", "mumbai
 
 options: an SDKOptions instance to specify a private key and/or an IPFS gateway URL
 
-### func \(\*AkhiraSDK\) [GetContract](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/sdk.go#L158>)
+### func \(\*AkhiraSDK\) [GetContract](<https://github.com/akhirachain/go-sdk/blob/main/akhira/sdk.go#L158>)
 
 ```go
 func (sdk *AkhiraSDK) GetContract(address string) (*SmartContract, error)
@@ -30,11 +30,11 @@ func (sdk *AkhiraSDK) GetContract(address string) (*SmartContract, error)
 
 #### GetContract
 
-Get an instance of a custom contract deployed with thirdweb deploy
+Get an instance of a custom contract deployed with akhira deploy
 
 address: the address of the contract
 
-### func \(\*AkhiraSDK\) [GetContractFromAbi](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/sdk.go#L174>)
+### func \(\*AkhiraSDK\) [GetContractFromAbi](<https://github.com/akhirachain/go-sdk/blob/main/akhira/sdk.go#L174>)
 
 ```go
 func (sdk *AkhiraSDK) GetContractFromAbi(address string, abi string) (*SmartContract, error)
@@ -48,7 +48,7 @@ address: the address of the contract
 
 abi: the ABI of the contract
 
-### func \(\*AkhiraSDK\) [GetEdition](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/sdk.go#L86>)
+### func \(\*AkhiraSDK\) [GetEdition](<https://github.com/akhirachain/go-sdk/blob/main/akhira/sdk.go#L86>)
 
 ```go
 func (sdk *AkhiraSDK) GetEdition(address string) (*Edition, error)
@@ -60,7 +60,7 @@ Get an Edition contract SDK instance
 
 address: the address of the Edition contract
 
-### func \(\*AkhiraSDK\) [GetEditionDrop](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/sdk.go#L130>)
+### func \(\*AkhiraSDK\) [GetEditionDrop](<https://github.com/akhirachain/go-sdk/blob/main/akhira/sdk.go#L130>)
 
 ```go
 func (sdk *AkhiraSDK) GetEditionDrop(address string) (*EditionDrop, error)
@@ -72,7 +72,7 @@ Get an Edition Drop contract SDK instance
 
 address: the address of the Edition Drop contract
 
-### func \(\*AkhiraSDK\) [GetMultiwrap](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/sdk.go#L144>)
+### func \(\*AkhiraSDK\) [GetMultiwrap](<https://github.com/akhirachain/go-sdk/blob/main/akhira/sdk.go#L144>)
 
 ```go
 func (sdk *AkhiraSDK) GetMultiwrap(address string) (*Multiwrap, error)
@@ -84,7 +84,7 @@ Get a Multiwrap contract SDK instance
 
 address: the address of the Multiwrap contract
 
-### func \(\*AkhiraSDK\) [GetNFTCollection](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/sdk.go#L72>)
+### func \(\*AkhiraSDK\) [GetNFTCollection](<https://github.com/akhirachain/go-sdk/blob/main/akhira/sdk.go#L72>)
 
 ```go
 func (sdk *AkhiraSDK) GetNFTCollection(address string) (*NFTCollection, error)
@@ -96,7 +96,7 @@ Get an NFT Collection contract SDK instance
 
 address: the address of the NFT Collection contract
 
-### func \(\*AkhiraSDK\) [GetNFTDrop](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/sdk.go#L116>)
+### func \(\*AkhiraSDK\) [GetNFTDrop](<https://github.com/akhirachain/go-sdk/blob/main/akhira/sdk.go#L116>)
 
 ```go
 func (sdk *AkhiraSDK) GetNFTDrop(address string) (*NFTDrop, error)
@@ -108,7 +108,7 @@ Get an NFT Drop contract SDK instance
 
 address: the address of the NFT Drop contract
 
-### func \(\*AkhiraSDK\) [GetToken](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/sdk.go#L102>)
+### func \(\*AkhiraSDK\) [GetToken](<https://github.com/akhirachain/go-sdk/blob/main/akhira/sdk.go#L102>)
 
 ```go
 func (sdk *AkhiraSDK) GetToken(address string) (*Token, error)

@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 
+	"github.com/akhirachain/go-sdk/akhira"
 	"github.com/spf13/cobra"
-	"github.com/thirdweb-dev/go-sdk/thirdweb"
 )
 
 var (
@@ -85,7 +85,7 @@ var nftDropCreateBatchCmd = &cobra.Command{
 		defer image1.Close()
 
 		if tx, err := nftDrop.CreateBatch(
-			[]*thirdweb.NFTMetadataInput{
+			[]*akhira.NFTMetadataInput{
 				{
 					Name:  "Drop NFT 1",
 					Image: image0,

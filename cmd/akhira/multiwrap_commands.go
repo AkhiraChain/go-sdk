@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/akhirachain/go-sdk/akhira"
 	"github.com/spf13/cobra"
-	"github.com/thirdweb-dev/go-sdk/thirdweb"
 )
 
 var (
@@ -74,20 +74,20 @@ var multiwrapWrapCmd = &cobra.Command{
 			panic(err)
 		}
 
-		contents := &thirdweb.MultiwrapBundle{
-			ERC20Tokens: []*thirdweb.MultiwrapERC20{
+		contents := &akhira.MultiwrapBundle{
+			ERC20Tokens: []*akhira.MultiwrapERC20{
 				{
 					ContractAddress: multiwrapToken,
 					Quantity:        1,
 				},
 			},
-			ERC721Tokens: []*thirdweb.MultiwrapERC721{
+			ERC721Tokens: []*akhira.MultiwrapERC721{
 				{
 					ContractAddress: multiwrapNft,
 					TokenId:         5,
 				},
 			},
-			ERC1155Tokens: []*thirdweb.MultiwrapERC1155{
+			ERC1155Tokens: []*akhira.MultiwrapERC1155{
 				{
 					ContractAddress: multiwrapEdition,
 					TokenId:         0,
@@ -102,7 +102,7 @@ var multiwrapWrapCmd = &cobra.Command{
 
 		if tx, err := multiwrap.Wrap(
 			contents,
-			&thirdweb.NFTMetadataInput{
+			&akhira.NFTMetadataInput{
 				Name: "Wrapped Token",
 			},
 			"",

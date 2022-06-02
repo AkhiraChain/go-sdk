@@ -12,8 +12,8 @@ var (
 	chainRpcUrl string
 
 	rootCmd = &cobra.Command{
-		Use:   "thirdweb",
-		Short: "A CLI for the thirdweb go SDK",
+		Use:   "akhira",
+		Short: "A CLI for the akhira go SDK",
 	}
 )
 

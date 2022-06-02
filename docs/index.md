@@ -1,11 +1,11 @@
 <p align="center">
 <br />
-<a href="https://thirdweb.com"><img src="https://github.com/thirdweb-dev/typescript-sdk/blob/main/logo.svg?raw=true" width="200" alt=""/></a>
+<a href="https://akhira.com"><img src="https://github.com/akhirachain/typescript-sdk/blob/main/logo.svg?raw=true" width="200" alt=""/></a>
 <br />
 </p>
-<h1 align="center">thirdweb Go SDK</h1>
+<h1 align="center">akhira Go SDK</h1>
 <p align="center">
-<a href="https://discord.gg/thirdweb"><img alt="Join our Discord!" src="https://img.shields.io/discord/834227967404146718.svg?color=7289da&label=discord&logo=discord&style=flat"/></a>
+<a href="https://discord.gg/akhira"><img alt="Join our Discord!" src="https://img.shields.io/discord/834227967404146718.svg?color=7289da&label=discord&logo=discord&style=flat"/></a>
 </p>
 
 # Installation
@@ -13,7 +13,7 @@
 To install the SDK with the `go get` command, run the following:
 
 ```bash
-go get github.com/thirdweb-dev/go-sdk/thirdweb
+go get github.com/akhirachain/go-sdk/akhira
 ```
 
 ## Getting Started
@@ -30,14 +30,14 @@ package main
 import (
 	"fmt"
   
-	"github.com/thirdweb-dev/go-sdk/thirdweb"
+	"github.com/akhirachain/go-sdk/akhira"
 )
 
 func main() {
 	// Creates a new SDK instance to get read-only data for your contracts, you can pass:
 	// - a chain name (mainnet, rinkeby, goerli, polygon, mumbai, avalanche, fantom)
 	// - a custom RPC URL
-	sdk, err := thirdweb.NewAkhiraSDK("mumbai", nil)
+	sdk, err := akhira.NewAkhiraSDK("mumbai", nil)
 	if err != nil {
 		panic(err)
 	}
@@ -54,7 +54,7 @@ func main() {
 
 ### Working With Contracts
 
-Once you instantiate the SDK, you can use it to access your thirdweb contracts. You can use SDK's contract getter functions like `GetNFTCollection`, `GetEdition`, and `GetNFTDrop`, to get the respective SDK contract instances. To use an NFT Collection contract for example, you can do the following.
+Once you instantiate the SDK, you can use it to access your akhira contracts. You can use SDK's contract getter functions like `GetNFTCollection`, `GetEdition`, and `GetNFTDrop`, to get the respective SDK contract instances. To use an NFT Collection contract for example, you can do the following.
 
 ```go
 package main
@@ -62,11 +62,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/thirdweb-dev/go-sdk/thirdweb"
+	"github.com/akhirachain/go-sdk/akhira"
 )
 
 func main() {
-	sdk, err := thirdweb.NewAkhiraSDK("mumbai", nil)
+	sdk, err := akhira.NewAkhiraSDK("mumbai", nil)
 	if err != nil {
 		panic(err)
 	}
@@ -103,7 +103,7 @@ import (
 	"fmt"
 	"encoding/json"
 
-	"github.com/thirdweb-dev/go-sdk/thirdweb"
+	"github.com/akhirachain/go-sdk/akhira"
 )
 
 func main() {
@@ -111,7 +111,7 @@ func main() {
 	privateKey := "..."
 
 	// Instantiate the SDK with your privateKey
-	sdk, err := thirdweb.NewAkhiraSDK("mumbai", &thirdweb.SDKOptions{
+	sdk, err := akhira.NewAkhiraSDK("mumbai", &akhira.SDKOptions{
 		PrivateKey: privateKey,
 	})
 	if err != nil {
@@ -127,9 +127,9 @@ func main() {
 
 	// Now you can execute transactions using the SDK contract functions
 	tx, err := nft.Mint(
-		&thirdweb.NFTMetadataInput{
+		&akhira.NFTMetadataInput{
 			Name:        "Test NFT",
-			Description: "Minted with the thirdweb Go SDK",
+			Description: "Minted with the akhira Go SDK",
 			Image: "ipfs://QmcCJC4T37rykDjR6oorM8hpB9GQWHKWbAi2YR1uTabUZu/0",
 		},
 	)

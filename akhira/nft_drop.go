@@ -3,22 +3,22 @@ package akhira
 import (
 	"math/big"
 
+	"github.com/akhirachain/go-sdk/internal/abi"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/thirdweb-dev/go-sdk/internal/abi"
 )
 
 // You can access the NFT Drop interface from the SDK as follows:
 //
 // 	import (
-// 		"github.com/thirdweb-dev/go-sdk/thirdweb"
+// 		"github.com/akhirachain/go-sdk/akhira"
 // 	)
 //
 // 	privateKey = "..."
 //
-// 	sdk, err := thirdweb.NewAkhiraSDK("mumbai", &thirdweb.SDKOptions{
+// 	sdk, err := akhira.NewAkhiraSDK("mumbai", &akhira.SDKOptions{
 //		PrivateKey: privateKey,
 // 	})
 //
@@ -171,13 +171,13 @@ func (drop *NFTDrop) GetAllUnclaimed() ([]*NFTMetadata, error) {
 // 	image1, err := os.Open("path/to/image/1.jpg")
 // 	defer image1.Close()
 //
-// 	metadatas := []*thirdweb.NFTMetadataInput{
-// 		&thirdweb.NFTMetadataInput{
+// 	metadatas := []*akhira.NFTMetadataInput{
+// 		&akhira.NFTMetadataInput{
 // 			Name: "Cool NFT",
 // 			Description: "This is a cool NFT",
 // 			Image: image1
 // 		}
-// 		&thirdweb.NFTMetadataInput{
+// 		&akhira.NFTMetadataInput{
 // 			Name: "Cool NFT 2",
 // 			Description: "This is also a cool NFT",
 // 			Image: image2

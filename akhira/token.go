@@ -1,22 +1,22 @@
 package akhira
 
 import (
+	"github.com/akhirachain/go-sdk/internal/abi"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/thirdweb-dev/go-sdk/internal/abi"
 )
 
 // You can access the Token interface from the SDK as follows:
 //
 // 	import (
-// 		"github.com/thirdweb-dev/go-sdk/thirdweb"
+// 		"github.com/akhirachain/go-sdk/akhira"
 // 	)
 //
 // 	privateKey = "..."
 //
-// 	sdk, err := thirdweb.NewAkhiraSDK("mumbai", &thirdweb.SDKOptions{
+// 	sdk, err := akhira.NewAkhiraSDK("mumbai", &akhira.SDKOptions{
 //		PrivateKey: privateKey,
 // 	})
 //
@@ -132,12 +132,12 @@ func (token *Token) MintTo(to string, amount float64) (*types.Transaction, error
 //
 // Example
 //
-// 	args = []*thirdweb.TokenAmount{
-// 		&thirdweb.TokenAmount{
+// 	args = []*akhira.TokenAmount{
+// 		&akhira.TokenAmount{
 // 			ToAddress: "{{wallet_address}}",
 // 			Amount:    1
 // 		}
-// 		&thirdweb.TokenAmount{
+// 		&akhira.TokenAmount{
 // 			ToAddress: "{{wallet_address}}",
 // 			Amount:    2
 // 		}

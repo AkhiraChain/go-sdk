@@ -152,7 +152,7 @@ func (sdk *AkhiraSDK) GetMultiwrap(address string) (*Multiwrap, error) {
 
 // GetContract
 //
-// Get an instance of a custom contract deployed with thirdweb deploy
+// Get an instance of a custom contract deployed with akhira deploy
 //
 // address: the address of the contract
 func (sdk *AkhiraSDK) GetContract(address string) (*SmartContract, error) {

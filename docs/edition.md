@@ -5,12 +5,12 @@ You can access the Edition interface from the SDK as follows:
 
 ```
 import (
-	"github.com/thirdweb-dev/go-sdk/thirdweb"
+	"github.com/akhirachain/go-sdk/akhira"
 )
 
 privateKey = "..."
 
-sdk, err := thirdweb.NewAkhiraSDK("mumbai", &thirdweb.SDKOptions{
+sdk, err := akhira.NewAkhiraSDK("mumbai", &akhira.SDKOptions{
 	PrivateKey: privateKey,
 })
 
@@ -24,7 +24,7 @@ type Edition struct {
 }
 ```
 
-### func \(\*Edition\) [Mint](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/edition.go#L65>)
+### func \(\*Edition\) [Mint](<https://github.com/akhirachain/go-sdk/blob/main/akhira/edition.go#L65>)
 
 ```go
 func (edition *Edition) Mint(metadataWithSupply *EditionMetadataInput) (*types.Transaction, error)
@@ -36,7 +36,7 @@ metadataWithSupply: nft metadata with supply of the NFT to mint
 
 returns: the transaction receipt of the mint
 
-### func \(\*Edition\) [MintAdditionalSupply](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/edition.go#L125>)
+### func \(\*Edition\) [MintAdditionalSupply](<https://github.com/akhirachain/go-sdk/blob/main/akhira/edition.go#L125>)
 
 ```go
 func (edition *Edition) MintAdditionalSupply(tokenId int, additionalSupply int) (*types.Transaction, error)
@@ -50,7 +50,7 @@ additionalSupply: additional supply to mint
 
 returns: the transaction receipt of the mint
 
-### func \(\*Edition\) [MintAdditionalSupplyTo](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/edition.go#L139>)
+### func \(\*Edition\) [MintAdditionalSupplyTo](<https://github.com/akhirachain/go-sdk/blob/main/akhira/edition.go#L139>)
 
 ```go
 func (edition *Edition) MintAdditionalSupplyTo(to string, tokenId int, additionalSupply int) (*types.Transaction, error)
@@ -66,7 +66,7 @@ additionalySupply: additional supply to mint
 
 returns: the transaction receipt of the mint
 
-### func \(\*Edition\) [MintBatchTo](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/edition.go#L191>)
+### func \(\*Edition\) [MintBatchTo](<https://github.com/akhirachain/go-sdk/blob/main/akhira/edition.go#L191>)
 
 ```go
 func (edition *Edition) MintBatchTo(to string, metadatasWithSupply []*EditionMetadataInput) (*types.Transaction, error)
@@ -83,16 +83,16 @@ returns: the transaction receipt of the mint
 #### Example
 
 ```
-metadatasWithSupply := []*thirdweb.EditionMetadataInput{
-	&thirdweb.EditionMetadataInput{
-		Metadata: &thirdweb.NFTMetadataInput{
+metadatasWithSupply := []*akhira.EditionMetadataInput{
+	&akhira.EditionMetadataInput{
+		Metadata: &akhira.NFTMetadataInput{
 			Name: "Cool NFT",
 			Description: "This is a cool NFT",
 		},
 		Supply: 100,
 	},
-	&thirdweb.EditionMetadataInput{
-		Metadata: &thirdweb.NFTMetadataInput{
+	&akhira.EditionMetadataInput{
+		Metadata: &akhira.NFTMetadataInput{
 			Name: "Cool NFT",
 			Description: "This is a cool NFT",
 		},
@@ -103,7 +103,7 @@ metadatasWithSupply := []*thirdweb.EditionMetadataInput{
 tx, err := contract.MintBatchTo("{{wallet_address}}", metadatasWithSupply)
 ```
 
-### func \(\*Edition\) [MintTo](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/edition.go#L93>)
+### func \(\*Edition\) [MintTo](<https://github.com/akhirachain/go-sdk/blob/main/akhira/edition.go#L93>)
 
 ```go
 func (edition *Edition) MintTo(address string, metadataWithSupply *EditionMetadataInput) (*types.Transaction, error)
@@ -123,8 +123,8 @@ returns: the transaction receipt of the mint
 image, err := os.Open("path/to/image.jpg")
 defer image.Close()
 
-metadataWithSupply := &thirdweb.EditionMetadataInput{
-	Metadata: &thirdweb.NFTMetadataInput{
+metadataWithSupply := &akhira.EditionMetadataInput{
+	Metadata: &akhira.NFTMetadataInput{
 		Name: "Cool NFT",
 		Description: "This is a cool NFT",
 		Image: image,

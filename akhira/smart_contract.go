@@ -14,22 +14,22 @@ import (
 
 // Custom Contracts
 //
-// With the thirdweb SDK, you can get a contract instance for any contract. Additionally,
-// if you deployed your contract using thirdweb deploy, you can get a more explicit and
+// With the akhira SDK, you can get a contract instance for any contract. Additionally,
+// if you deployed your contract using akhira deploy, you can get a more explicit and
 // intuitive interface to interact with your contracts.
 //
 // Getting a Custom Contract Instance
 //
 // Let's take a look at how you can get a custom contract instance for one of your contracts
-// deployed using the thirdweb deploy flow:
+// deployed using the akhira deploy flow:
 //
 // 	import (
-// 		"github.com/thirdweb-dev/go-sdk/thirdweb"
+// 		"github.com/akhirachain/go-sdk/akhira"
 // 	)
 //
 // 	privateKey = "..."
 //
-// 	sdk, err := thirdweb.NewAkhiraSDK("mumbai", &thirdweb.SDKOptions{
+// 	sdk, err := akhira.NewAkhiraSDK("mumbai", &akhira.SDKOptions{
 //		PrivateKey: privateKey,
 // 	})
 //
@@ -39,16 +39,16 @@ import (
 // 	// Now you have a contract instance ready to go
 //	contract, err := sdk.GetContract(contractAddress)
 //
-// Alternatively, if you didn't deploy your contract with thirdweb deploy, you can still get a
+// Alternatively, if you didn't deploy your contract with akhira deploy, you can still get a
 // contract instance for any contract using your contracts ABI:
 //
 // 	import (
-// 		"github.com/thirdweb-dev/go-sdk/thirdweb"
+// 		"github.com/akhirachain/go-sdk/akhira"
 // 	)
 //
 // 	privateKey = "..."
 //
-// 	sdk, err := thirdweb.NewAkhiraSDK("mumbai", &thirdweb.SDKOptions{
+// 	sdk, err := akhira.NewAkhiraSDK("mumbai", &akhira.SDKOptions{
 //		PrivateKey: privateKey,
 // 	})
 //

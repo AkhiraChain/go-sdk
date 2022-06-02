@@ -6,22 +6,22 @@ import (
 	"log"
 	"math/big"
 
+	"github.com/akhirachain/go-sdk/internal/abi"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/thirdweb-dev/go-sdk/internal/abi"
 )
 
 // You can access the Multiwrap interface from the SDK as follows:
 //
 // 	import (
-// 		"github.com/thirdweb-dev/go-sdk/thirdweb"
+// 		"github.com/akhirachain/go-sdk/akhira"
 // 	)
 //
 // 	privateKey = "..."
 //
-// 	sdk, err := thirdweb.NewAkhiraSDK("mumbai", &thirdweb.SDKOptions{
+// 	sdk, err := akhira.NewAkhiraSDK("mumbai", &akhira.SDKOptions{
 //		PrivateKey: privateKey,
 // 	})
 //
@@ -125,21 +125,21 @@ func (multiwrap *Multiwrap) GetWrappedContents(wrappedTokenId int) (*MultiwrapBu
 //
 // Example
 //
-// 	contents := &thirdweb.MultiwrapBundle{
-// 		ERC20Tokens: []*thirdweb.MultiwrapERC20{
-// 			&thirdweb.MultiwrapERC20{
+// 	contents := &akhira.MultiwrapBundle{
+// 		ERC20Tokens: []*akhira.MultiwrapERC20{
+// 			&akhira.MultiwrapERC20{
 // 				ContractAddress: "0x...",
 // 				Quantity:        1,
 // 			},
 // 		},
-// 		ERC721Tokens: []*thirdweb.MultiwrapERC721{
-// 			&thirdweb.MultiwrapERC721{
+// 		ERC721Tokens: []*akhira.MultiwrapERC721{
+// 			&akhira.MultiwrapERC721{
 // 				ContractAddress: "0x...",
 // 				TokenId:         1,
 // 			},
 // 		},
-// 		ERC1155Tokens: []*thirdweb.MultiwrapERC1155{
-// 			&thirdweb.MultiwrapERC1155{
+// 		ERC1155Tokens: []*akhira.MultiwrapERC1155{
+// 			&akhira.MultiwrapERC1155{
 // 				ContractAddress: "0x...",
 // 				TokenId:         1,
 // 				Quantity:        1,
@@ -147,7 +147,7 @@ func (multiwrap *Multiwrap) GetWrappedContents(wrappedTokenId int) (*MultiwrapBu
 // 		},
 // 	}
 //
-// 	wrappedTokenMetadata := &thirdweb.NFTMetadataInput{
+// 	wrappedTokenMetadata := &akhira.NFTMetadataInput{
 // 		Name: "Wrapped Token"
 // 	}
 //

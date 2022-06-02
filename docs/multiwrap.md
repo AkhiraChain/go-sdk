@@ -5,12 +5,12 @@ You can access the Multiwrap interface from the SDK as follows:
 
 ```
 import (
-	"github.com/thirdweb-dev/go-sdk/thirdweb"
+	"github.com/akhirachain/go-sdk/akhira"
 )
 
 privateKey = "..."
 
-sdk, err := thirdweb.NewAkhiraSDK("mumbai", &thirdweb.SDKOptions{
+sdk, err := akhira.NewAkhiraSDK("mumbai", &akhira.SDKOptions{
 	PrivateKey: privateKey,
 })
 
@@ -23,7 +23,7 @@ type Multiwrap struct {
 }
 ```
 
-### func \(\*Multiwrap\) [GetWrappedContents](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/multiwrap.go#L69>)
+### func \(\*Multiwrap\) [GetWrappedContents](<https://github.com/akhirachain/go-sdk/blob/main/akhira/multiwrap.go#L69>)
 
 ```go
 func (multiwrap *Multiwrap) GetWrappedContents(wrappedTokenId int) (*MultiwrapBundle, error)
@@ -45,7 +45,7 @@ erc721Tokens := contents.Erc721Tokens
 erc1155Tokens := contents.Erc1155Tokens
 ```
 
-### func \(\*Multiwrap\) [Unwrap](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/multiwrap.go#L205>)
+### func \(\*Multiwrap\) [Unwrap](<https://github.com/akhirachain/go-sdk/blob/main/akhira/multiwrap.go#L205>)
 
 ```go
 func (multiwrap *Multiwrap) Unwrap(wrappedTokenId int, recipientAddress string) (*types.Transaction, error)
@@ -66,7 +66,7 @@ tokenId := 0
 tx, err := contract.Unwrap(tokenId, "")
 ```
 
-### func \(\*Multiwrap\) [Wrap](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/multiwrap.go#L156>)
+### func \(\*Multiwrap\) [Wrap](<https://github.com/akhirachain/go-sdk/blob/main/akhira/multiwrap.go#L156>)
 
 ```go
 func (multiwrap *Multiwrap) Wrap(contents *MultiwrapBundle, wrappedTokenMetadata interface{}, recipientAddress string) (*types.Transaction, error)
@@ -85,21 +85,21 @@ returns: the transaction receipt of the wrapping
 #### Example
 
 ```
-contents := &thirdweb.MultiwrapBundle{
-	ERC20Tokens: []*thirdweb.MultiwrapERC20{
-		&thirdweb.MultiwrapERC20{
+contents := &akhira.MultiwrapBundle{
+	ERC20Tokens: []*akhira.MultiwrapERC20{
+		&akhira.MultiwrapERC20{
 			ContractAddress: "0x...",
 			Quantity:        1,
 		},
 	},
-	ERC721Tokens: []*thirdweb.MultiwrapERC721{
-		&thirdweb.MultiwrapERC721{
+	ERC721Tokens: []*akhira.MultiwrapERC721{
+		&akhira.MultiwrapERC721{
 			ContractAddress: "0x...",
 			TokenId:         1,
 		},
 	},
-	ERC1155Tokens: []*thirdweb.MultiwrapERC1155{
-		&thirdweb.MultiwrapERC1155{
+	ERC1155Tokens: []*akhira.MultiwrapERC1155{
+		&akhira.MultiwrapERC1155{
 			ContractAddress: "0x...",
 			TokenId:         1,
 			Quantity:        1,
@@ -107,7 +107,7 @@ contents := &thirdweb.MultiwrapBundle{
 	},
 }
 
-wrappedTokenMetadata := &thirdweb.NFTMetadataInput{
+wrappedTokenMetadata := &akhira.NFTMetadataInput{
 	Name: "Wrapped Token"
 }
 
@@ -115,7 +115,7 @@ wrappedTokenMetadata := &thirdweb.NFTMetadataInput{
 tx, err := contract.Wrap(contents, wrappedTokenMetadata, "")
 ```
 
-## type [MultiwrapBundle](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L215-L219>)
+## type [MultiwrapBundle](<https://github.com/akhirachain/go-sdk/blob/main/akhira/types.go#L215-L219>)
 
 ```go
 type MultiwrapBundle struct {
@@ -125,7 +125,7 @@ type MultiwrapBundle struct {
 }
 ```
 
-## type [MultiwrapERC1155](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L209-L213>)
+## type [MultiwrapERC1155](<https://github.com/akhirachain/go-sdk/blob/main/akhira/types.go#L209-L213>)
 
 ```go
 type MultiwrapERC1155 struct {
@@ -135,7 +135,7 @@ type MultiwrapERC1155 struct {
 }
 ```
 
-## type [MultiwrapERC20](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L199-L202>)
+## type [MultiwrapERC20](<https://github.com/akhirachain/go-sdk/blob/main/akhira/types.go#L199-L202>)
 
 ```go
 type MultiwrapERC20 struct {
@@ -144,7 +144,7 @@ type MultiwrapERC20 struct {
 }
 ```
 
-## type [MultiwrapERC721](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L204-L207>)
+## type [MultiwrapERC721](<https://github.com/akhirachain/go-sdk/blob/main/akhira/types.go#L204-L207>)
 
 ```go
 type MultiwrapERC721 struct {

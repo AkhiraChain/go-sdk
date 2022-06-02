@@ -7,7 +7,7 @@ You can access this interface from the NFT Collection contract under the signatu
 type ERC721SignatureMinting struct {}
 ```
 
-### func \(\*ERC721SignatureMinting\) [Generate](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc721_signature_minting.go#L175>)
+### func \(\*ERC721SignatureMinting\) [Generate](<https://github.com/akhirachain/go-sdk/blob/main/akhira/erc721_signature_minting.go#L175>)
 
 ```go
 func (signature *ERC721SignatureMinting) Generate(payloadToSign *Signature721PayloadInput) (*SignedPayload721, error)
@@ -22,14 +22,14 @@ returns: the payload signed by the minter's private key
 #### Example
 
 ```
-payload := &thirdweb.Signature721PayloadInput{
+payload := &akhira.Signature721PayloadInput{
 	To:                   "0x9e1b8A86fFEE4a7175DAE4bDB1cC12d111Dcb3D6", // address to mint to
 	Price:                0,                                            // cost of minting
 	CurrencyAddress:      "0x0000000000000000000000000000000000000000", // currency to pay in order to mint
 	MintStartTime:        0,                                            // time where minting is allowed to start (epoch seconds)
 	MintEndTime:          100000000000000,                              // time when this signature expires (epoch seconds)
 	PrimarySaleRecipient: "0x0000000000000000000000000000000000000000", // address to receive the primary sales of this mint
-	Metadata: &thirdweb.NFTMetadataInput{																// metadata of the NFT to mint
+	Metadata: &akhira.NFTMetadataInput{																// metadata of the NFT to mint
  		Name:  "ERC721 Sigmint!",
 	},
 	RoyaltyRecipient: "0x0000000000000000000000000000000000000000",     // address to receive royalties of this mint
@@ -39,7 +39,7 @@ payload := &thirdweb.Signature721PayloadInput{
 signedPayload, err := contract.Signature.Generate(payload)
 ```
 
-### func \(\*ERC721SignatureMinting\) [GenerateBatch](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc721_signature_minting.go#L224>)
+### func \(\*ERC721SignatureMinting\) [GenerateBatch](<https://github.com/akhirachain/go-sdk/blob/main/akhira/erc721_signature_minting.go#L224>)
 
 ```go
 func (signature *ERC721SignatureMinting) GenerateBatch(payloadsToSign []*Signature721PayloadInput) ([]*SignedPayload721, error)
@@ -54,29 +54,29 @@ returns: the payloads signed by the minter's private key
 #### Example
 
 ```
-payload := []*thirdweb.Signature721PayloadInput{
-	&thirdweb.Signature721PayloadInput{
+payload := []*akhira.Signature721PayloadInput{
+	&akhira.Signature721PayloadInput{
 		To:                   "0x9e1b8A86fFEE4a7175DAE4bDB1cC12d111Dcb3D6",
 		Price:                0,
 		CurrencyAddress:      "0x0000000000000000000000000000000000000000",
 		MintStartTime:        0,
 		MintEndTime:          100000000000000,
 		PrimarySaleRecipient: "0x0000000000000000000000000000000000000000",
-		Metadata: &thirdweb.NFTMetadataInput{
+		Metadata: &akhira.NFTMetadataInput{
  			Name:  "ERC721 Sigmint!",
  			Image: imageFile,
 		},
 		RoyaltyRecipient: "0x0000000000000000000000000000000000000000",
 		RoyaltyBps:       0,
 	},
-	&thirdweb.Signature721PayloadInput{
+	&akhira.Signature721PayloadInput{
 		To:                   "0x9e1b8A86fFEE4a7175DAE4bDB1cC12d111Dcb3D6",
 		Price:                0,
 		CurrencyAddress:      "0x0000000000000000000000000000000000000000",
 		MintStartTime:        0,
 		MintEndTime:          100000000000000,
 		PrimarySaleRecipient: "0x0000000000000000000000000000000000000000",
-		Metadata: &thirdweb.NFTMetadataInput{
+		Metadata: &akhira.NFTMetadataInput{
  			Name:  "ERC721 Sigmint!",
  			Image: imageFile,
 		},
@@ -88,7 +88,7 @@ payload := []*thirdweb.Signature721PayloadInput{
 signedPayload, err := contract.Signature.GenerateBatch(payload)
 ```
 
-### func \(\*ERC721SignatureMinting\) [Mint](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc721_signature_minting.go#L51>)
+### func \(\*ERC721SignatureMinting\) [Mint](<https://github.com/akhirachain/go-sdk/blob/main/akhira/erc721_signature_minting.go#L51>)
 
 ```go
 func (signature *ERC721SignatureMinting) Mint(signedPayload *SignedPayload721) (*types.Transaction, error)
@@ -108,7 +108,7 @@ signedPayload, err := contract.Signature.Generate(payload)
 tx, err := contract.Signature.Mint(signedPayload)
 ```
 
-### func \(\*ERC721SignatureMinting\) [MintBatch](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc721_signature_minting.go#L87>)
+### func \(\*ERC721SignatureMinting\) [MintBatch](<https://github.com/akhirachain/go-sdk/blob/main/akhira/erc721_signature_minting.go#L87>)
 
 ```go
 func (signature *ERC721SignatureMinting) MintBatch(signedPayloads []*SignedPayload721) (*types.Transaction, error)
@@ -128,7 +128,7 @@ signedPayloads, err := contract.Signature.GenerateBatch(payloads)
 tx, err := contract.Signature.MintBatch(signedPayloads)
 ```
 
-### func \(\*ERC721SignatureMinting\) [Verify](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc721_signature_minting.go#L139>)
+### func \(\*ERC721SignatureMinting\) [Verify](<https://github.com/akhirachain/go-sdk/blob/main/akhira/erc721_signature_minting.go#L139>)
 
 ```go
 func (signature *ERC721SignatureMinting) Verify(signedPayload *SignedPayload721) (bool, error)

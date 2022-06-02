@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 
+	"github.com/akhirachain/go-sdk/akhira"
 	"github.com/spf13/cobra"
-	"github.com/thirdweb-dev/go-sdk/thirdweb"
 )
 
 var (
@@ -78,8 +78,8 @@ var editionMintCmd = &cobra.Command{
 		}
 		defer imageFile.Close()
 
-		if tx, err := edition.Mint(&thirdweb.EditionMetadataInput{
-			Metadata: &thirdweb.NFTMetadataInput{
+		if tx, err := edition.Mint(&akhira.EditionMetadataInput{
+			Metadata: &akhira.NFTMetadataInput{
 				Name:  "Edition Test",
 				Image: imageFile,
 			},
@@ -112,14 +112,14 @@ var editionSigmintCmd = &cobra.Command{
 		defer imageFile.Close()
 
 		payload, err := edition.Signature.Generate(
-			&thirdweb.Signature1155PayloadInput{
+			&akhira.Signature1155PayloadInput{
 				To:                   "0x9e1b8A86fFEE4a7175DAE4bDB1cC12d111Dcb3D6",
 				Price:                0,
 				CurrencyAddress:      "0x0000000000000000000000000000000000000000",
 				MintStartTime:        0,
 				MintEndTime:          100000000000000,
 				PrimarySaleRecipient: "0x0000000000000000000000000000000000000000",
-				Metadata: &thirdweb.NFTMetadataInput{
+				Metadata: &akhira.NFTMetadataInput{
 					Name:  "ERC1155 Sigmint!",
 					Image: imageFile,
 				},
@@ -165,14 +165,14 @@ var editionSigmintTokenIdCmd = &cobra.Command{
 		defer imageFile.Close()
 
 		payload, err := edition.Signature.GenerateFromTokenId(
-			&thirdweb.Signature1155PayloadInputWithTokenId{
+			&akhira.Signature1155PayloadInputWithTokenId{
 				To:                   "0x9e1b8A86fFEE4a7175DAE4bDB1cC12d111Dcb3D6",
 				Price:                0,
 				CurrencyAddress:      "0x0000000000000000000000000000000000000000",
 				MintStartTime:        0,
 				MintEndTime:          100000000000000,
 				PrimarySaleRecipient: "0x0000000000000000000000000000000000000000",
-				Metadata: &thirdweb.NFTMetadataInput{
+				Metadata: &akhira.NFTMetadataInput{
 					Name:  "ERC1155 Sigmint!",
 					Image: imageFile,
 				},

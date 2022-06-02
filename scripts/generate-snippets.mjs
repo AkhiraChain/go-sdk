@@ -1,6 +1,6 @@
 import fs from "fs";
 
-const BASE_DOC_URL = "https://docs.thirdweb.com/go/";
+const BASE_DOC_URL = "https://docs.akhira.com/go/";
 
 // Setup for contract snippets
 // Name must match contract name for TS and Python

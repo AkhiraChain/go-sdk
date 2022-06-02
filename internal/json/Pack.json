@@ -13,7 +13,7 @@
       },
       {
         "internalType": "address",
-        "name": "_thirdwebFee",
+        "name": "_akhiraFee",
         "type": "address"
       }
     ],
@@ -1531,7 +1531,7 @@
   },
   {
     "inputs": [],
-    "name": "thirdwebFee",
+    "name": "akhiraFee",
     "outputs": [
       {
         "internalType": "contract ITWFee",

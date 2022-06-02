@@ -37,7 +37,7 @@ var customSetCmd = &cobra.Command{
 
 		log.Println(data)
 
-		tx, err := contract.Call("mintTo", thirdwebSDK.GetSignerAddress().Hex(), "ipfs://QmXCKX8MHHCXU62UWdiU38cjK3vbQ4MeL9FgXKo2hAR6Yz/0" )
+		tx, err := contract.Call("mintTo", akhiraSDK.GetSignerAddress().Hex(), "ipfs://QmXCKX8MHHCXU62UWdiU38cjK3vbQ4MeL9FgXKo2hAR6Yz/0")
 		if err != nil {
 			panic(err)
 		}
